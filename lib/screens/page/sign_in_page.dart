@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup/screens/page/sign_up_page.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -128,7 +129,12 @@ class SignInPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPage()),
+                  );
+                },
                 child: Text(
                   "Create Account ",
                   style: TextStyle(

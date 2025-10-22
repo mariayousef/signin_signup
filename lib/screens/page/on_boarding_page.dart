@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:signin_signup/core/resoueces/asset_value_manager.dart' show ValueManager;
+import 'package:signin_signup/core/resoueces/asset_value_manager.dart'
+    show ValueManager;
 import 'package:signin_signup/core/resoueces/size_value_manager.dart';
+import 'package:signin_signup/screens/page/sign_in_page.dart';
+import 'package:signin_signup/screens/page/sign_up_page.dart';
 import 'package:signin_signup/screens/widget/custom_material_button.dart';
 
 import '../../core/resoueces/strings_value_manager.dart';
@@ -14,9 +17,12 @@ class OnBoardingPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Image.asset(ValueManager.onBoardingImage,height: HightValueManager.h400),
+            Image.asset(
+              ValueManager.onBoardingImage,
+              height: HightValueManager.h400,
+            ),
             SizedBox(height: 7),
-             Text(
+            Text(
               textAlign: TextAlign.center,
               StringsValueManager.txt2,
               style: TextStyle(
@@ -27,7 +33,7 @@ class OnBoardingPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-             Text(
+            Text(
               textAlign: TextAlign.center,
               StringsValueManager.txt1,
               style: TextStyle(
@@ -37,40 +43,34 @@ class OnBoardingPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Spacer(flex: 1,),
+            Spacer(flex: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ////////////////////////////////
                 SizedBox(width: 10),
-                CustomMaterialButton(title: "Register"),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
+                    );
+                  },
+                  child: const Text(StringsValueManager.register),
+                ),
                 SizedBox(width: 10),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  onPressed: () {},
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF3571AC),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      "login ",
-
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Cairo",
-                      ),
-                    ),
-                  ),
+                CustomMaterialButton(
+                  title: StringsValueManager.login,
+                   onpressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignInPage()),
+                    );
+                   },
                 ),
               ],
             ),
-            Spacer(flex: 1,),
+            Spacer(flex: 1),
           ],
         ),
       ),
