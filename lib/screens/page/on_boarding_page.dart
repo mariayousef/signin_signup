@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:signin_signup/core/resoueces/asset_value_manager.dart' show ValueManager;
+import 'package:signin_signup/core/resoueces/size_value_manager.dart';
+import 'package:signin_signup/screens/widget/custom_material_button.dart';
+
+import '../../core/resoueces/strings_value_manager.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
@@ -9,11 +14,11 @@ class OnBoardingPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Image.asset("assets/imgs/onboarding.png"),
+            Image.asset(ValueManager.onBoardingImage,height: HightValueManager.h400),
             SizedBox(height: 7),
-            const Text(
+             Text(
               textAlign: TextAlign.center,
-              "Find Your Dream Job \n Discover your dream Job here",
+              StringsValueManager.txt2,
               style: TextStyle(
                 color: Color(0xFF3571AC),
                 fontSize: 30,
@@ -22,9 +27,9 @@ class OnBoardingPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            const Text(
+             Text(
               textAlign: TextAlign.center,
-              "Discover your dream Job here now you can do a lot",
+              StringsValueManager.txt1,
               style: TextStyle(
                 color: Color(0xFF000000),
                 fontSize: 18,
@@ -38,28 +43,7 @@ class OnBoardingPage extends StatelessWidget {
               children: [
                 ////////////////////////////////
                 SizedBox(width: 10),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  onPressed: () {},
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF3571AC),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      "Register ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Cairo",
-                      ),
-                    ),
-                  ),
-                ),
+                CustomMaterialButton(title: "Register"),
                 SizedBox(width: 10),
                 MaterialButton(
                   padding: EdgeInsets.zero,
